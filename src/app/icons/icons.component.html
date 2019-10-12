@@ -1,0 +1,109 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="card card-plain">
+          <div class="card-header card-header-danger">
+              <h4 class="card-title">About People's Corner</h4>
+              <p class="card-category">Your opinions and feedback are valuable for the Strategic IS Team and IndianOil
+                 
+              </p>
+          </div>
+
+          <script>
+              var app = angular.module('ContactForm',[]);
+
+app.controller("cfController",function($scope){
+	$scope.submitForm = function(isValid) {
+		this.formInput = {
+        name: $("input[name='name']").val(),
+        email: $("input[name='email']").val(),
+        message: $("textarea[name='message']").val()
+   };
+		if (isValid) {
+			console.log('Message sent successfully');
+			console.log(this.formInput);
+		} else {
+			console.log('Failed to send message')
+		}
+	};
+});
+</script>
+<div class="row">
+<div class="container col-sm-5" ng-app="ContactForm" style="text-align:justify">
+        <h5>What is People's Corner</h5>
+        Speakers' Corner is located on the north-east edge of Hyde Park, nearest Marble Arch and Oxford Street.<br/>
+
+Historic figures such as Karl Marx, Vladimir Lenin and George Orwell were known to often use the area to demonstrate free speech.<br/>
+
+In 1872, an act of parliament set aside this part of Hyde Park for public speaking. Even today, on a Sunday morning, it's not unusual to find crowds gathering at Speakers' Corner to listen to enthusiasts expounding their views. Anyone can turn up unannounced to speak on any subject, as long as the police consider their speeches lawful.
+</div>
+<div class="container col-sm-3" ng-app="ContactForm">
+        <h5>Submit Your Feedback</h5>
+        <form name="cf" ng-controller="cfController as cfCtrl" ng-submit="submitForm(cf.$valid)" novalidate>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" ng-model="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email (optional)</label>
+                <input id="email" type="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="msg">Message</label>
+                <textarea id="msg" name="message" rows="4" ng-model="msg" required></textarea>
+            </div>
+            <input type="submit" value="Send" ng-disabled="cf.$invalid"/>
+        </form>
+ </div>
+ <div class="container col-sm-3" ng-app="ContactForm">
+        <h5>Take The Online Quiz</h5>
+        <form name="cf" ng-controller="cfController as cfCtrl" ng-submit="submitForm(cf.$valid)" novalidate>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" ng-model="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email (optional)</label>
+                <input id="email" type="email" name="email">
+            </div>
+            <div class="form-group">
+                    <label for="organization">Organization</label>
+                    <input id="organization" type="name" name="organization">
+                </div>
+
+                <div class="form-group" >
+                        <label for="organization" style="display:inline-block; margin-right:2%;">Currently Employed </label>
+                        <div class="form-check" style="display:inline-block">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        <!--<input id="organization" type="checkbox" name="organization">-->
+                    </div>
+            <input type="submit" value="Start" ng-disabled="cf.$invalid"/>
+        </form>
+ </div>
+      </div>
+         <!-- <div class="row">
+              <div class="col-md-12">
+                  <div class="card-body">
+                      <div class="iframe-container d-none d-lg-block">
+                          <iframe src="https://design.google.com/icons/">
+                              <p>Your browser does not support iframes.</p>
+                          </iframe>
+                      </div>
+                      <div class="col-md-12 d-none d-sm-block d-md-block d-lg-none d-block d-sm-none text-center ml-auto mr-auto">
+                          <h5>The icons are visible on Desktop mode inside an iframe. Since the iframe is not working on Mobile and Tablets please visit the icons on their original page on Google. Check the
+                              <a href="https://design.google.com/icons/" target="_blank">Material Icons</a>
+                          </h5>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        -->
+      </div>
+  </div>
+</div>
